@@ -1,4 +1,7 @@
 #include <unistd.h>
+#include <QCoreApplication>
+#include <QFileInfo>
+#include <QProcess>
 #include "ffps.h"
 
 Ffps::Ffps(QWidget *parent)

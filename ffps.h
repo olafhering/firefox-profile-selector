@@ -1,7 +1,15 @@
 #ifndef FFPS_H
 #define FFPS_H
 
-#include <QtGui>
+#include <QCheckBox>
+#include <QLabel>
+#include <QLineEdit>
+#include <QListWidget>
+#include <QPushButton>
+#include <QSettings>
+#include <QString>
+#include <QVBoxLayout>
+#include <QWidget>
 
 class Ffps : public QWidget
 {
