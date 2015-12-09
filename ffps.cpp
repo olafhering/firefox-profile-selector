@@ -1,5 +1,4 @@
 #include <unistd.h>
-#include <QtGui>
 #include "ffps.h"
 
 Ffps::Ffps(QWidget *parent)
