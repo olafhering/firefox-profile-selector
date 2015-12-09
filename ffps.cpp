@@ -131,7 +131,10 @@ void Ffps::Run()
 	if (tab_instead_window->isChecked()) {
 		argv[i] = strdup("--new-tab");
 		i++;
-	} else
+	} else {
+		argv[i] = strdup("--new-window");
+		i++;
+	}
 
 	if (private_window->isChecked()) {
 		argv[i] = strdup("--private-window");
