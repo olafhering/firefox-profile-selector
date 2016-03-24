@@ -1,0 +1,21 @@
+[Desktop Entry]
+X-SuSE-translate=true
+Categories=Network;WebBrowser;GTK;
+Encoding=UTF-8
+Name=Firefox Profile Selector
+GenericName=Web Browser
+Comment=Pass URL to a Firefox Profile
+TryExec=firefox
+Exec=firefox-profile-selector %u
+Icon=firefox
+Terminal=false
+StartupNotify=true
+MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;application/x-xpinstall;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;
+Type=Application
+
+Actions=PrivateBrowsing;
+
+[Desktop Action PrivateBrowsing]
+Name=New Private Browsing Window
+Exec=firefox-profile-selector %u
+
