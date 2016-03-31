@@ -103,7 +103,7 @@ void Ffps::FillList(QWidget *top)
 	list->setSortingEnabled(true);
 	list->sortItems(Qt::AscendingOrder);
 	connect(list, SIGNAL(itemDoubleClicked(QListWidgetItem*)), top, SLOT(Run()));
-	connect(list, SIGNAL(itemClicked(QListWidgetItem*)), top, SLOT(EnableRunButton()));
+	connect(list, SIGNAL(itemSelectionChanged()), top, SLOT(EnableRunButton()));
 }
 
 void Ffps::Run()
