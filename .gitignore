@@ -21,6 +21,7 @@ firefox-profile-selector
 *.qbs.user.*
 *.moc
 moc_*.cpp
+moc_*.h
 qrc_*.cpp
 ui_*.h
 Makefile*
