@@ -69,6 +69,8 @@ void Ffps::FillList(QWidget *top)
 		QString line, name, is_relative, path, is_default;
 
 		name = ini->value(profile + "/Name").toString();
+		if (name.length() <= 0)
+			continue;
 		is_relative = ini->value(profile + "/isRelative").toString();
 		path = ini->value(profile + "/Path").toString();
 		is_default = ini->value(profile + "/Default").toString();
