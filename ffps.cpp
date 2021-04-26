@@ -59,6 +59,7 @@ Ffps::Ffps(QWidget *parent)
 void Ffps::FillList(QWidget *top)
 {
 	ini = new QSettings(profiles_ini, QSettings::IniFormat, top);
+	ini->setIniCodec("UTF-8");
 
 	list = new QListWidget(top);
 	vlay->addWidget(list);
