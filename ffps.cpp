@@ -58,6 +58,8 @@ Ffps::Ffps(QWidget *parent)
 
 void Ffps::FillList(QWidget *top)
 {
+	QString default_profile;
+
 	ini = new QSettings(profiles_ini, QSettings::IniFormat, top);
 	ini->setIniCodec("UTF-8");
 
@@ -66,22 +68,31 @@ void Ffps::FillList(QWidget *top)
 
 	QStringList profile_names = ini->childGroups();
 	foreach (const QString &profile, profile_names) {
+		if (!profile.startsWith("Install", Qt::CaseSensitive))
+			continue;
+		default_profile = ini->value(profile + "/Default").toString();
+	}
+	foreach (const QString &profile, profile_names) {
 		QListWidgetItem *item;
-		QString line, name, is_relative, path, is_default;
+		QString line, name, is_relative, path;
+		bool is_default = false;
 
 		name = ini->value(profile + "/Name").toString();
 		if (name.length() <= 0)
 			continue;
 		is_relative = ini->value(profile + "/IsRelative").toString();
 		path = ini->value(profile + "/Path").toString();
-		is_default = ini->value(profile + "/Default").toString();
+		if (default_profile.length() > 0)
+			is_default = default_profile.compare(path, Qt::CaseSensitive) == 0;
+		else
+			is_default = ini->value(profile + "/Default").toString().toInt() > 0;
 
 		line += profile + ": " + name;
 		line += ", relative: " + is_relative;
 		line += ", path: " + path;
 
 		item = new QListWidgetItem(name, list, QListWidgetItem::Type);
-		if (is_default.toInt()) {
+		if (is_default) {
 			QFont font = item->font();
 			font.setBold(true);
 			item->setFont(font);
