@@ -77,6 +77,9 @@ void Ffps::FillList(QWidget *top)
 		QString line, name, is_relative, path;
 		bool is_default = false;
 
+		if (!profile.startsWith("Profile", Qt::CaseSensitive))
+			continue;
+
 		name = ini->value(profile + "/Name").toString();
 		if (name.length() <= 0)
 			continue;
