@@ -106,9 +106,11 @@ void Ffps::FillList(QWidget *top)
 	}
 
 	tab_instead_window = new QCheckBox("Tab instead of Window", top);
+	tab_instead_window->setCheckState(Qt::Checked);
 	vlay->addWidget(tab_instead_window);
 
 	private_window = new QCheckBox("Private Window", top);
+	private_window->setCheckState(Qt::Checked);
 	vlay->addWidget(private_window);
 
 	if (list->count()) {
