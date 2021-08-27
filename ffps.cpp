@@ -18,6 +18,7 @@ Ffps::Ffps(QWidget *parent)
 	vlay->addWidget(exe);
 
 	url = new QLineEdit(top);
+	url->setFocus();
 	vlay->addWidget(url);
 
 
