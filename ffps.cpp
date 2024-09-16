@@ -111,7 +111,6 @@ void Ffps::FillList(QWidget *top)
 	vlay->addWidget(tab_instead_window);
 
 	private_window = new QCheckBox("Private Window", top);
-	private_window->setCheckState(Qt::Checked);
 	vlay->addWidget(private_window);
 
 	if (list->count()) {
