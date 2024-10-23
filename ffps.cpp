@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <QCoreApplication>
+#include <QDir>
 #include <QFileInfo>
 #include <QProcess>
 #include "ffps.h"
@@ -86,6 +87,7 @@ void Ffps::FillList(QWidget *top)
 			continue;
 		is_relative = ini->value(profile + "/IsRelative").toString();
 		path = ini->value(profile + "/Path").toString();
+		QVariant path_for_item(path);
 		if (default_profile.length() > 0)
 			is_default = default_profile.compare(path, Qt::CaseSensitive) == 0;
 		else
@@ -101,6 +103,7 @@ void Ffps::FillList(QWidget *top)
 			font.setBold(true);
 			item->setFont(font);
 		}
+		item->setData(Qt::UserRole, path_for_item);
 		item->setToolTip(line);
 		list->addItem(item);
 		continue;
@@ -134,8 +137,18 @@ void Ffps::Run()
 	char *argv[10] = { };
 
 	item = list->currentItem();
-	if (item)
+	if (item) {
+		QString path;
+		QVariant path_from_item;
+
 		profile = item->text();
+		path_from_item = item->data(Qt::UserRole);
+		path = path_from_item.toString();
+		if (path.startsWith("/")) {
+			QDir dir;
+			dir.mkdir(path);
+		}
+	}
 	profile_char = profile.toLatin1();
 	ff_char = exe->text().toLatin1();
 
