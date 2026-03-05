@@ -1,5 +1,5 @@
-%if %0{?suse_version} > 0
-%if %{?suse_version} > 1310
+%if 0%{?suse_version} > 0
+%if 0%{?suse_version} > 1310
 %bcond_with    qt4
 %bcond_without qt5
 %else
