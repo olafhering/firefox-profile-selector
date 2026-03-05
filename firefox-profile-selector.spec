@@ -60,12 +60,12 @@ svg='%{S:1}'
 for size in 16 22 24 32 48 256
 do
   mkdir -p %buildroot%_datadir/icons/hicolor/${size}x${size}/apps/
-  convert \
+  magick \
+    "${svg}" \
     -density 1200 \
     -resize ${size}x${size} \
     -set date:create "2001-01-01T01:01:0100:00" \
     -set date:modify "2001-01-01T01:01:0100:00" \
-    "${svg}" \
     %buildroot%_datadir/icons/hicolor/${size}x${size}/apps/%name.png
 done
 mkdir -p %buildroot%_datadir/pixmaps
