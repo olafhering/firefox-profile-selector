@@ -17,7 +17,7 @@ Release:        0
 License:        GPL-2.0
 Summary:        Pass URL to FireFox profile
 Url:            https://github.com/olafhering/firefox-profile-selector
-Source0:        %name-%version.tar.xz
+Source0:        %name-%version.tar
 Source1:        https://upload.wikimedia.org/wikipedia/commons/7/76/Mozilla_Firefox_logo_2013.svg
 Conflicts:      %name-debuginfo < %version-%release
 Conflicts:      %name-debugsource < %version-%release
